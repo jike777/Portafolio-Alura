@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --color-primario: #000000;
+    --color-secundario: #F6F6F6;
+    --color-terciario: #22D4FD;
+    --color-hover: #272727;
+
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-krona: 'Krona One', sans-serif;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 15%;
+    font-family: var(--font-montserrat)
+}
+
+/* Estilo para el menú hamburger */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-terciario);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.header__menu {
+    display: flex;
+    gap: 80px;
+    /* Oculta el menú en pantallas pequeñas */
+
+}
+
+.header__menu.active {
+    display: flex;
+    /* Añade el estilo para mostrar el menú en pantallas pequeñas */
+    position: absolute;
+    top: 60px;
+    /* Ajusta según tu diseño */
+    left: 0;
+    right: 0;
+    background-color: var(--color-primario);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header__menu__link {
+    text-decoration: none;
+    color: var(--color-terciario);
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    /* Necesario para el subrayado */
+    transition: color 0.3s ease;
+    /* Transición suave para el color */
+}
+
+.header__menu__link:hover {
+    color: var(--color-hover);
+}
+
+.close {
+    display: none;
+    font-size: 36px;
+    color: var(--color-terciario);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+
+.presentacion {
+    padding: 4% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.presentacion__contenido {
+    width: 615px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+.presentacion__contenido__titulo {
+    font-size: 36px;
+    font-family: var(--font-krona);
+}
+
+.titulo-destaque {
+    color: var(--color-terciario);
+    ;
+}
+
+.presentacion__contenido__texto {
+    font-size: 24px;
+    font-family: var(--font-montserrat);
+}
+
+.presentacion__contenido__texto a {
+    text-decoration: none;
+    color: var(--color-terciario);
+}
+
+.presentacion__enlaces {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.presentacion__enlaces__subtitulo {
+    font-family: var(--font-krona);
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.presentacion__enlaces__link {
+    /* background-color: #22D4FD; */
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--color-terciario);
+    width: 378px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-family: var(--font-montserrat);
+}
+
+.presentacion__enlaces__link:hover {
+    background-color: var(--color-hover);
+
+}
+
+.presentacion__enlaces__link:hover {
+
+    border: 2px dotted var(--color-terciario);
+    color: var(--color-terciario);
+}
+
+
+.image {
+    width: 488px;
+    height: 550px;
+    transition: filter 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.image:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    filter: grayscale(0%)
+}
+
+.footer {
+    color: var(--color-primario);
+    background-color: var(--color-terciario);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--font-montserrat);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+/*Media Queries*/
+
+
+/* Estilo para el menú en pantallas pequeñas */
+@media (max-width: 480px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .header__menu {
+        display: none;
+        /* Oculta el menú en pantallas pequeñas por defecto */
+        position: absolute;
+        top: 60px;
+        /* Ajusta según tu diseño */
+        left: 0;
+        right: 0;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .header__menu.active {
+        display: flex;
+        /* Muestra el menú cuando está activo */
+    }
+
+    .header__menu__link {
+        font-size: 20px;
+    }
+
+    .close {
+        display: block;
+    }
+}
+
+
+
+/* Para dispositivos móviles en orientación vertical */
+@media (max-width: 480px) {
+    .header {
+        padding: 16px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__menu__link {
+        font-size: 20px;
+    }
+
+    .presentacion {
+        padding: 4% 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .presentacion__contenido {
+        width: 100%;
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 28px;
+    }
+
+    .presentacion__contenido__texto {
+        font-size: 20px;
+    }
+
+    .presentacion__enlaces__link {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        font-size: 20px;
+    }
+}
+
+/* Estilo para el menú en pantallas pequeñas */
+@media (max-width: 480px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .header__menu {
+        display: none;
+        /* Oculta el menú en pantallas pequeñas por defecto */
+        position: absolute;
+        top: 60px;
+        /* Ajusta según tu diseño */
+        left: 0;
+        right: 0;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .header__menu.active {
+        display: flex;
+        /* Muestra el menú cuando está activo */
+    }
+
+    .header__menu__link {
+        font-size: 20px;
+    }
+
+    .close {
+        display: block;
+    }
+
+    .header {
+        padding: 16px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .presentacion {
+        padding: 4% 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .presentacion__contenido {
+        width: 100%;
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 28px;
+    }
+
+    .presentacion__contenido__texto {
+        font-size: 20px;
+    }
+
+    .presentacion__enlaces__link {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        font-size: 20px;
+    }
+}
+
+/* Para dispositivos móviles en orientación horizontal y tabletas */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header {
+        padding: 24px 10%;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header__menu {
+        gap: 40px;
+    }
+
+    .header__menu__link {
+        font-size: 22px;
+    }
+
+    .presentacion {
+        padding: 4% 10%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .presentacion__contenido {
+        width: 100%;
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 32px;
+    }
+
+    .presentacion__contenido__texto {
+        font-size: 22px;
+    }
+
+    .presentacion__enlaces__link {
+        width: 100%;
+        font-size: 22px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        font-size: 22px;
+    }
+}
+
+/* Para pantallas de escritorio grandes */
+@media (min-width: 1200px) {
+    .header {
+        padding: 24px 15%;
+    }
+
+    .header__menu {
+        gap: 80px;
+    }
+
+    .presentacion {
+        padding: 4% 15%;
+        flex-direction: row;
+    }
+
+    .presentacion__contenido {
+        width: 615px;
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 36px;
+    }
+
+    .presentacion__contenido__texto {
+        font-size: 24px;
+    }
+
+    .presentacion__enlaces__link {
+        width: 378px;
+        font-size: 24px;
+    }
+
+    .image {
+        width: 488px;
+        height: 550px;
+    }
+
+    .footer {
+        font-size: 24px;
+    }
+}
